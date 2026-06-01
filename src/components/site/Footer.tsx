@@ -76,7 +76,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-electric shrink-0 mt-0.5" />
-                <span>Ahmedabad, Gujarat, India</span>
+                <span>Thane, Mumbai, Navi Mumbai</span>
               </li>
             </ul>
           </div>

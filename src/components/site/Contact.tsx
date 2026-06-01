@@ -46,7 +46,7 @@ export function Contact() {
             {[
               { icon: Phone, label: "Phone", value: "+91 73044 10123", href: "tel:+917304410123" },
               { icon: Mail, label: "Email", value: "krupatechcomputers@gmail.com", href: "mailto:krupatechcomputers@gmail.com" },
-              { icon: MapPin, label: "Office", value: "Ahmedabad, Gujarat, India" },
+              { icon: MapPin, label: "Office", value: "Thane, Mumbai, Navi Mumbai" },
             ].map((c) => (
               <a
                 key={c.label}

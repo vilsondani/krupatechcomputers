@@ -9,9 +9,9 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Company */}
           <div>
-            <div className="flex items-center gap-2 mb-5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-gradient shadow-glow">
-                <Cpu className="h-5 w-5 text-primary-foreground" />
+            <div className="flex items-center gap-2.5 mb-5">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-glow overflow-hidden">
+                <img src={logo.url} alt="KrupaTech Computers" className="h-9 w-9 object-contain" />
               </span>
               <span className="font-display text-lg font-bold">
                 Krupa<span className="text-electric">Tech</span>

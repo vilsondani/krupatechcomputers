@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Cpu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/krupatech-logo.png.asset.json";
 
 const links = [
   { href: "#services", label: "Services" },

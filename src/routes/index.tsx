@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
             addressCountry: "IN",
           },
           telephone: "+91-98765-43210",
-          email: "hello@krupatech.in",
+          email: "krupatechcomputers@gmail.com",
           areaServed: "IN",
         }),
       },

@@ -68,11 +68,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Phone className="h-4 w-4 text-electric shrink-0 mt-0.5" />
-                <a href="tel:+919876543210" className="hover:text-electric transition-colors">+91 98765 43210</a>
+                <a href="tel:+917304410123" className="hover:text-electric transition-colors">+91 73044 10123</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-4 w-4 text-electric shrink-0 mt-0.5" />
-                <a href="mailto:hello@krupatech.in" className="hover:text-electric transition-colors">hello@krupatech.in</a>
+                <a href="mailto:krupatechcomputers@gmail.com" className="hover:text-electric transition-colors">krupatechcomputers@gmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-electric shrink-0 mt-0.5" />

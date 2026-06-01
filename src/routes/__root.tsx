@@ -84,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "KrupaTech Computers" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "KrupaTech Computers" },
+      { name: "twitter:title", content: "KrupaTech Computers" },
+      { property: "og:description", content: "Reliable IT solutions, CCTV, networking, AMC and server management for Indian businesses." },
+      { name: "twitter:description", content: "Reliable IT solutions, CCTV, networking, AMC and server management for Indian businesses." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/aa9b4a93-12c7-4503-ab66-834582ef5ed3" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/aa9b4a93-12c7-4503-ab66-834582ef5ed3" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Cpu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/krupatech-logo.png.asset.json";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -34,9 +35,9 @@ export function Navbar() {
             scrolled ? "glass-strong shadow-card" : "glass"
           }`}
         >
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-gradient shadow-glow">
-              <Cpu className="h-5 w-5 text-primary-foreground" />
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-glow overflow-hidden">
+              <img src={logo.url} alt="KrupaTech Computers" className="h-9 w-9 object-contain" />
             </span>
             <span className="font-display text-lg font-bold tracking-tight">
               Krupa<span className="text-electric">Tech</span>

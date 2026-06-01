@@ -1,4 +1,5 @@
-import { Cpu, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logo from "@/assets/krupatech-logo.png.asset.json";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -8,9 +9,9 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Company */}
           <div>
-            <div className="flex items-center gap-2 mb-5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-gradient shadow-glow">
-                <Cpu className="h-5 w-5 text-primary-foreground" />
+            <div className="flex items-center gap-2.5 mb-5">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white shadow-glow overflow-hidden">
+                <img src={logo.url} alt="KrupaTech Computers" className="h-9 w-9 object-contain" />
               </span>
               <span className="font-display text-lg font-bold">
                 Krupa<span className="text-electric">Tech</span>
@@ -67,11 +68,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Phone className="h-4 w-4 text-electric shrink-0 mt-0.5" />
-                <a href="tel:+919876543210" className="hover:text-electric transition-colors">+91 98765 43210</a>
+                <a href="tel:+917304410123" className="hover:text-electric transition-colors">+91 73044 10123</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-4 w-4 text-electric shrink-0 mt-0.5" />
-                <a href="mailto:hello@krupatech.in" className="hover:text-electric transition-colors">hello@krupatech.in</a>
+                <a href="mailto:krupatechcomputers@gmail.com" className="hover:text-electric transition-colors">krupatechcomputers@gmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-electric shrink-0 mt-0.5" />

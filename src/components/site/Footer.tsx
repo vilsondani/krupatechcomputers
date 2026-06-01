@@ -1,4 +1,5 @@
-import { Cpu, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logo from "@/assets/krupatech-logo.png.asset.json";
 
 export function Footer() {
   const year = new Date().getFullYear();

@@ -41,8 +41,8 @@ export const Route = createFileRoute("/")({
             "IT solutions and technology services company offering IT support, CCTV, networking, AMC, and server management.",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Ahmedabad",
-            addressRegion: "Gujarat",
+            addressLocality: "Thane",
+            addressRegion: "Maharashtra",
             addressCountry: "IN",
           },
           telephone: "+91-73044-10123",

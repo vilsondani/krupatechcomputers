@@ -20,6 +20,8 @@ const hashLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,24 +52,55 @@ export function Navbar() {
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
+            {pageLinks.map((l) => (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  activeProps={{ className: "text-foreground bg-white/5" }}
                   className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-white/5"
                 >
                   {l.label}
-                </a>
+                </Link>
+              </li>
+            ))}
+            {hashLinks.map((l) => (
+              <li key={l.hash}>
+                {isHome ? (
+                  <a
+                    href={`#${l.hash}`}
+                    className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    to="/"
+                    hash={l.hash}
+                    className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
 
-          <a
-            href="#contact"
-            className="hidden lg:inline-flex items-center justify-center rounded-xl bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition-opacity"
-          >
-            Get Consultation
-          </a>
+          {isHome ? (
+            <a
+              href="#contact"
+              className="hidden lg:inline-flex items-center justify-center rounded-xl bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition-opacity"
+            >
+              Get Consultation
+            </a>
+          ) : (
+            <Link
+              to="/"
+              hash="contact"
+              className="hidden lg:inline-flex items-center justify-center rounded-xl bg-primary-gradient px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition-opacity"
+            >
+              Get Consultation
+            </Link>
+          )}
 
           <button
             onClick={() => setOpen(!open)}
@@ -81,25 +114,58 @@ export function Navbar() {
         {open && (
           <div className="lg:hidden mt-2 glass-strong rounded-2xl p-4 animate-fade-up">
             <ul className="flex flex-col gap-1">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
+              {pageLinks.map((l) => (
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
                     onClick={() => setOpen(false)}
                     className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5"
                   >
                     {l.label}
-                  </a>
+                  </Link>
+                </li>
+              ))}
+              {hashLinks.map((l) => (
+                <li key={l.hash}>
+                  {isHome ? (
+                    <a
+                      href={`#${l.hash}`}
+                      onClick={() => setOpen(false)}
+                      className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5"
+                    >
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to="/"
+                      hash={l.hash}
+                      onClick={() => setOpen(false)}
+                      className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5"
+                    >
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
               <li>
-                <a
-                  href="#contact"
-                  onClick={() => setOpen(false)}
-                  className="mt-2 block text-center rounded-xl bg-primary-gradient px-5 py-3 text-sm font-semibold text-primary-foreground"
-                >
-                  Get Consultation
-                </a>
+                {isHome ? (
+                  <a
+                    href="#contact"
+                    onClick={() => setOpen(false)}
+                    className="mt-2 block text-center rounded-xl bg-primary-gradient px-5 py-3 text-sm font-semibold text-primary-foreground"
+                  >
+                    Get Consultation
+                  </a>
+                ) : (
+                  <Link
+                    to="/"
+                    hash="contact"
+                    onClick={() => setOpen(false)}
+                    className="mt-2 block text-center rounded-xl bg-primary-gradient px-5 py-3 text-sm font-semibold text-primary-foreground"
+                  >
+                    Get Consultation
+                  </Link>
+                )}
               </li>
             </ul>
           </div>

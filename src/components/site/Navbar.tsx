@@ -4,13 +4,17 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/krupatech-logo.png.asset.json";
 
-const links = [
-  { href: "#services", label: "Services" },
-  { href: "#why", label: "Why Us" },
-  { href: "#about", label: "About" },
-  { href: "#industries", label: "Industries" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
+const pageLinks = [
+  { to: "/amc", label: "AMC" },
+];
+
+const hashLinks = [
+  { hash: "services", label: "Services" },
+  { hash: "why", label: "Why Us" },
+  { hash: "about", label: "About" },
+  { hash: "industries", label: "Industries" },
+  { hash: "process", label: "Process" },
+  { hash: "contact", label: "Contact" },
 ];
 
 export function Navbar() {

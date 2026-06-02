@@ -348,39 +348,24 @@ function AmcPage() {
           </div>
         </section>
 
-        {/* Closing Message */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Inquiry Form */}
+        <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
           <div className="glow-orb h-[500px] w-[500px] bg-primary -bottom-40 -right-40" />
 
           <div className="container mx-auto px-4 relative">
-            <div className="max-w-3xl mx-auto">
-              <div className="glass-strong rounded-3xl p-8 md:p-12 shadow-card text-center">
-                <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  Prevent Downtime. <span className="text-gradient">Protect Your Business.</span>
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                  An AMC helps prevent unexpected IT failures, improves system performance, and reduces emergency repair costs. We would be happy to discuss a <strong className="text-foreground">customized AMC plan</strong> based on your requirements.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                  <a
-                    href="tel:+917304410123"
-                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-primary-gradient px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant hover:shadow-glow transition-all hover:-translate-y-0.5"
-                  >
-                    <Phone className="h-4 w-4" />
-                    73044 10123
-                  </a>
-                  <Link
-                    to="/"
-                    hash="contact"
-                    className="inline-flex items-center justify-center gap-2 glass rounded-xl px-7 py-4 text-sm font-semibold text-foreground hover:bg-white/10 transition-colors"
-                  >
-                    Send an Inquiry
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <div className="text-xs font-semibold tracking-[0.2em] text-electric uppercase mb-3">
+                Get Started
               </div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                Request an <span className="text-gradient">AMC Quote</span>
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Fill in the details below and we will prepare a customized AMC plan for your business.
+              </p>
             </div>
+
+            <AmcInquiryForm />
           </div>
         </section>
 

@@ -1,7 +1,9 @@
+import { useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { z } from "zod";
 import {
   ArrowRight,
   Shield,
@@ -16,6 +18,8 @@ import {
   HeadphonesIcon,
   FileCheck,
   Sparkles,
+  Send,
+  CheckCircle2,
 } from "lucide-react";
 
 export const Route = createFileRoute("/amc")({

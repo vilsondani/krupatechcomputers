@@ -70,6 +70,162 @@ const reasons = [
   { icon: Shield, title: "Trusted by Businesses, Offices, Schools & Commercial Establishments", desc: "A diverse client base that renews contracts year after year based on trust." },
 ];
 
+const amcServices = [
+  "Comprehensive IT AMC",
+  "Hardware & Desktop AMC",
+  "Network & Router AMC",
+  "CCTV Surveillance AMC",
+  "Server & Firewall AMC",
+  "Printer & Peripheral AMC",
+  "Multiple Services AMC",
+];
+
+const amcSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
+  company: z.string().trim().min(1, "Company name is required").max(150),
+  phone: z.string().trim().regex(/^[0-9\s\-+()]{7,20}$/, "Enter a valid phone number"),
+  email: z.string().trim().email("Enter a valid email address").max(255),
+  service: z.string().min(1, "Please select a service type"),
+  message: z.string().trim().min(5, "Message must be at least 5 characters").max(1000),
+});
+
+type FormErrors = Partial<Record<keyof z.infer<typeof amcSchema>, string>>;
+
+function AmcInquiryForm() {
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries()) as Record<string, string>;
+
+    const result = amcSchema.safeParse(data);
+    if (!result.success) {
+      const fieldErrors: FormErrors = {};
+      for (const issue of result.error.issues) {
+        const path = issue.path[0] as keyof FormErrors;
+        if (!fieldErrors[path]) fieldErrors[path] = issue.message;
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+    setSubmitted(true);
+    (e.target as HTMLFormElement).reset();
+    setTimeout(() => setSubmitted(false), 6000);
+  };
+
+  const clearError = (field: keyof FormErrors) => {
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto">
+      <form onSubmit={onSubmit} className="glass-strong rounded-3xl p-6 md:p-10 shadow-card">
+        {submitted && (
+          <div className="mb-6 flex items-center gap-3 rounded-xl border border-electric/40 bg-electric/10 px-4 py-3 text-sm">
+            <CheckCircle2 className="h-5 w-5 text-electric shrink-0" />
+            Thank you! We will contact you shortly to discuss your AMC plan.
+          </div>
+        )}
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Name <span className="text-electric">*</span>
+            </label>
+            <input
+              name="name"
+              type="text"
+              onChange={() => clearError("name")}
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all ${errors.name ? "border-destructive" : "border-white/10"}`}
+            />
+            {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+          </div>
+          <div>
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Company Name <span className="text-electric">*</span>
+            </label>
+            <input
+              name="company"
+              type="text"
+              onChange={() => clearError("company")}
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all ${errors.company ? "border-destructive" : "border-white/10"}`}
+            />
+            {errors.company && <p className="text-destructive text-xs mt-1">{errors.company}</p>}
+          </div>
+          <div>
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Phone Number <span className="text-electric">*</span>
+            </label>
+            <input
+              name="phone"
+              type="tel"
+              onChange={() => clearError("phone")}
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all ${errors.phone ? "border-destructive" : "border-white/10"}`}
+            />
+            {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
+          </div>
+          <div>
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Email <span className="text-electric">*</span>
+            </label>
+            <input
+              name="email"
+              type="email"
+              onChange={() => clearError("email")}
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all ${errors.email ? "border-destructive" : "border-white/10"}`}
+            />
+            {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+          </div>
+          <div className="md:col-span-2">
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Service Type <span className="text-electric">*</span>
+            </label>
+            <select
+              name="service"
+              onChange={() => clearError("service")}
+              defaultValue=""
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all ${errors.service ? "border-destructive" : "border-white/10"}`}
+            >
+              <option value="" disabled className="bg-navy">Select an AMC service</option>
+              {amcServices.map((s) => (
+                <option key={s} value={s} className="bg-navy">{s}</option>
+              ))}
+            </select>
+            {errors.service && <p className="text-destructive text-xs mt-1">{errors.service}</p>}
+          </div>
+          <div className="md:col-span-2">
+            <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Message <span className="text-electric">*</span>
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Tell us about your infrastructure, number of devices, and any specific requirements..."
+              onChange={() => clearError("message")}
+              className={`w-full rounded-xl bg-white/5 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-electric focus:ring-2 focus:ring-electric/30 transition-all resize-none ${errors.message ? "border-destructive" : "border-white/10"}`}
+            />
+            {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
+          </div>
+        </div>
+        <button
+          type="submit"
+          className="mt-6 w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-primary-gradient px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant hover:shadow-glow transition-all"
+        >
+          Request AMC Quote
+          <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </button>
+      </form>
+    </div>
+  );
+}
+
 function AmcPage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">

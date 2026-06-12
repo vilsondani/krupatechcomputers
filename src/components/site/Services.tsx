@@ -27,7 +27,7 @@ export function Services() {
       <div className="glow-orb h-96 w-96 bg-electric top-40 right-0 opacity-30" />
 
       <div className="container mx-auto px-4 relative">
-        <div className="max-w-2xl mb-16">
+        <Reveal className="max-w-2xl mb-16">
           <div className="text-xs font-semibold tracking-[0.2em] text-electric uppercase mb-3">
             Our Services
           </div>
@@ -38,15 +38,15 @@ export function Services() {
             From everyday support to enterprise infrastructure, we cover the full stack of
             services modern businesses need to stay productive and secure.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s) => (
-            <div
+            <StaggerItem
               key={s.title}
               className="group glass rounded-2xl p-6 hover:bg-white/[0.07] hover:-translate-y-1 hover:border-electric/40 transition-all duration-300"
             >
-              <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl bg-primary-gradient shadow-glow group-hover:scale-110 transition-transform">
+              <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl bg-primary-gradient shadow-glow group-hover:scale-110 group-hover:rotate-3 transition-transform">
                 <s.icon className="h-6 w-6 text-primary-foreground" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2 leading-snug">
@@ -55,9 +55,9 @@ export function Services() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {s.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

@@ -295,13 +295,13 @@ function AmcPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {benefits.map((b, i) => (
-                <div
+            <StaggerGroup className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {benefits.map((b) => (
+                <StaggerItem
                   key={b.title}
                   className="group glass rounded-2xl p-6 hover:bg-white/[0.07] hover:-translate-y-1 hover:border-electric/40 transition-all duration-300"
                 >
-                  <div className="mb-4 inline-grid h-12 w-12 place-items-center rounded-xl bg-electric/15 text-electric border border-electric/30 group-hover:bg-electric/25 transition-colors">
+                  <div className="mb-4 inline-grid h-12 w-12 place-items-center rounded-xl bg-electric/15 text-electric border border-electric/30 group-hover:bg-electric/25 group-hover:scale-110 transition-all">
                     <b.icon className="h-6 w-6" />
                   </div>
                   <h3 className="font-display text-lg font-semibold mb-2 leading-snug">
@@ -310,9 +310,9 @@ function AmcPage() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {b.desc}
                   </p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         </section>
 

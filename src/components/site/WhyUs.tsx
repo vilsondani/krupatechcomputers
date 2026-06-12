@@ -1,4 +1,5 @@
 import { Clock, Award, IndianRupee, Briefcase, MapPin, Star } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 const items = [
   { icon: Clock, title: "Fast Response Time", desc: "Same-day onsite visits and instant remote support, so downtime never derails your day." },

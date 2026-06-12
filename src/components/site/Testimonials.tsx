@@ -1,4 +1,5 @@
 import { Quote, Star } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 const reviews = [
   {

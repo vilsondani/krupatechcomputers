@@ -14,7 +14,7 @@ export function WhyUs() {
   return (
     <section id="why" className="relative py-24 md:py-32 bg-navy-deep/40">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center mb-16">
+        <Reveal className="max-w-2xl mx-auto text-center mb-16">
           <div className="text-xs font-semibold tracking-[0.2em] text-electric uppercase mb-3">
             Why Choose Us
           </div>
@@ -24,11 +24,11 @@ export function WhyUs() {
           <p className="text-muted-foreground text-lg">
             We combine technical depth with a service-first mindset that businesses depend on.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((it) => (
-            <div key={it.title} className="glass rounded-2xl p-7 hover:border-electric/40 transition-colors">
+            <StaggerItem key={it.title} className="glass rounded-2xl p-7 hover:border-electric/40 hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-electric/15 text-electric border border-electric/30">
                   <it.icon className="h-5 w-5" />
@@ -38,9 +38,9 @@ export function WhyUs() {
                   <p className="text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

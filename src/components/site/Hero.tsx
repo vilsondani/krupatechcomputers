@@ -62,12 +62,18 @@ export function Hero() {
               { icon: Zap, label: "Fast Response", value: "24/7" },
               { icon: Users, label: "Happy Clients", value: "200+" },
               { icon: ShieldCheck, label: "Years Experience", value: "10+" },
-            ].map((s) => (
-              <div key={s.label} className="glass rounded-2xl p-4 md:p-5">
+            ].map((s, idx) => (
+              <motion.div
+                key={s.label}
+                className="glass rounded-2xl p-4 md:p-5"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, delay: idx * 0.4, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.05, y: -8 }}
+              >
                 <s.icon className="h-5 w-5 text-electric mx-auto mb-2" />
                 <div className="font-display text-2xl md:text-3xl font-bold text-foreground">{s.value}</div>
                 <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

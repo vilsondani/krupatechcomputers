@@ -2,6 +2,7 @@ import {
   Headphones, FileCheck, Camera, Network, Server, Laptop, Printer, MonitorSmartphone,
   type LucideIcon,
 } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 interface Service {
   icon: LucideIcon;

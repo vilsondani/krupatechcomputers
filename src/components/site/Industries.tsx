@@ -1,4 +1,5 @@
 import { Factory, Building2, Warehouse, ShoppingBag, GraduationCap, Briefcase } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 const industries = [
   { icon: Factory, label: "Manufacturing" },

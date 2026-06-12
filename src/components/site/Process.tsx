@@ -1,4 +1,5 @@
 import { MessageSquare, Search, FileText, Wrench } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 const steps = [
   { n: "01", icon: MessageSquare, title: "Consultation", desc: "We listen to your business goals, current IT pain points and budget expectations." },

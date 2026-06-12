@@ -1,5 +1,6 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import { ArrowRight, Phone, ShieldCheck, Zap, Users } from "lucide-react";
+import { motion } from "motion/react";
 
 export function Hero() {
   return (
